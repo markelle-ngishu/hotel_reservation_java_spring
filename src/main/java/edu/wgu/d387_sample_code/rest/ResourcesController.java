@@ -28,13 +28,11 @@ public class ResourcesController {
         ex.execute(() -> {
             ReadWelcome readEN = new ReadWelcome("en", "US");
             msgs.add(readEN.getWelcomeMessage());
-            System.out.println("Received en_US Message");
         });
 
         ex.execute(() -> {
             ReadWelcome readFR = new ReadWelcome("fr", "CA");
             msgs.add(readFR.getWelcomeMessage());
-            System.out.println("Received fr_CA Message ");
         });
 
         return ResponseEntity.ok(msgs);
