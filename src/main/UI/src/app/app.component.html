@@ -15,6 +15,11 @@
     <nav id="nav" style="position: relative; top: 0; left: 0; bottom: auto; right: auto; width: 100%;">
       <div class="navbar">
         <div class="brand"><a href="/#welcome">Landon <span>Hotel</span></a></div>
+        <div>
+        <h3 *ngFor="let msg of welcomeMessages" style="color: white;text-align: center; padding: 10px;">
+          {{msg}}
+        </h3>
+          </div>
       </div><!-- navbar -->
     </nav>
   </div>
@@ -23,11 +28,21 @@
   <div class="scene" id="welcome">
     <article class="content">
 
- 
+
 
       <div class="row">
+        <h2>Join us at the upcoming live presentation!</h2>
+        <div class="col-12">
+          <p> </p>
+          <p> {{presentationTimes[0]}} ET</p>
+          <p> {{presentationTimes[1]}} MT</p>
+          <p> {{presentationTimes[2]}} UTC</p>
+        </div>
+      </div>
+      <div class="row">
         <div class=""col-12>
-          <div class="gallery">
+
+        <div class="gallery">
             <img src="assets/images/intro_room.jpg" alt="Intro Gallery Room Sample Pictures">
             <img src="assets/images/intro_pool.jpg" alt="Intro Gallery Pool Sample Pictures">
             <img src="assets/images/intro_dining.jpg" alt="Intro Gallery Dining Sample Pictures">
@@ -58,7 +73,7 @@
               </div>
               </form>
 
-        
+
         </div>
       </div>
 
@@ -75,7 +90,10 @@
                 </td>
                 <td>
                   <strong>Room #: {{room.roomNumber}}</strong><br/>
-                  <strong>Price: ${{room.price}}</strong>
+                  <strong>${{(+room.price).toFixed(2)}}</strong><br/>
+                  <strong>CA${{(+room.price*1.32).toFixed(2)}}</strong><br/>
+                  <strong>€{{(+room.price*0.89).toFixed(2)}}</strong>
+
                 </td>
                 <td>
                   <button type="submit" class="btn btn-primary" (click)="reserveRoom(room.id)">Reserve</button>
